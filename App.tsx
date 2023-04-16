@@ -4,20 +4,17 @@ import Catalog from './layouts/Catalog/Catalog';
 import './style.scss';
 
 export default function App() {
-  const [showCart, setShowCart] = React.useState(false);
-
-  React.useEffect(() => {
-    console.log('exibir carrinho');
-  }, [showCart]);
+  const [showCart, setShowCart] = React.useState(true);
+  const [cart, setCart] = React.useState([]);
 
   return (
     <div className="container">
       <div className="catalog">
-        <Catalog setShowCart={setShowCart} />
+        <Catalog setShowCart={setShowCart} cart={cart} setCart={setCart} />
       </div>
       {showCart && (
         <div className="cart">
-          <Cart />
+          <Cart cart={cart} setCart={setCart} />
         </div>
       )}
     </div>

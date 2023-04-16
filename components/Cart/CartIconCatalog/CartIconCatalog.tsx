@@ -1,7 +1,7 @@
 import * as React from 'react';
-import './IconCartCatalog.scss';
+import './CartIconCatalog.scss';
 
-const IconCartCatalog = ({ qtdItens, setShowCart }) => {
+const CartIconCatalog = ({ qtdItens, setShowCart }) => {
   const handleCLick = () => {
     setShowCart((show: boolean) => !show);
   };
@@ -13,4 +13,4 @@ const IconCartCatalog = ({ qtdItens, setShowCart }) => {
   );
 };
 
-export default IconCartCatalog;
+export default CartIconCatalog;

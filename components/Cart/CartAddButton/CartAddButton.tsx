@@ -1,7 +1,7 @@
 import * as React from 'react';
-import './AddCartButton.scss';
+import './CartAddButton.scss';
 
-const AddCartButton = ({ onClick }) => {
+const CartAddButton = ({ onClick }) => {
   return (
     <button type="button" className="AddCartButton" onClick={onClick}>
       Adicionar
@@ -9,4 +9,4 @@ const AddCartButton = ({ onClick }) => {
   );
 };
 
-export default AddCartButton;
+export default CartAddButton;

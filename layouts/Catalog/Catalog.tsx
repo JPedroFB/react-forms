@@ -3,16 +3,15 @@ import * as React from 'react';
 import Product from '../../components/Product/Product';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import ProductContainer from '../../components/ProductContainer/ProductContainer';
-import AddCartButton from '../../components/Cart/AddCartButton/AddCartButton';
+import CartAddButton from '../../components/Cart/CartAddButton/CartAddButton';
+import CartIconCatalog from '../../components/Cart/CartIconCatalog/CartIconCatalog';
 
 import { findAll } from './CatalogService';
 
 import './Catalogs.scss';
-import IconCartCatalog from '../../components/Cart/IconCartCatalog/IconCartCatalog';
 
-const Catalog = ({ setShowCart }) => {
+const Catalog = ({ setShowCart, cart, setCart }) => {
   let productList: Array<any> = findAll();
-  const [cart, setCart] = React.useState([]);
 
   const addItem = (product) => {
     setCart((cart) => {
@@ -21,15 +20,15 @@ const Catalog = ({ setShowCart }) => {
   };
 
   return (
-    <div>
+    <div className="catalogContainer">
       <PageTitle title="Catálogo">
-        <IconCartCatalog setShowCart={setShowCart} qtdItens={cart.length} />
+        <CartIconCatalog setShowCart={setShowCart} qtdItens={cart.length} />
       </PageTitle>
       <section>
         {productList.map((product) => (
           <ProductContainer key={product.id}>
             <Product data={product} />
-            <AddCartButton
+            <CartAddButton
               onClick={() => {
                 addItem(product);
               }}
