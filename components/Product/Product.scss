@@ -1,0 +1,15 @@
+.productCard {
+  border: solid black 1px;
+  padding: 10px 25px;
+  margin: 10px 0;
+
+  .productImages {
+    display: flex;
+    justify-content: center;
+  }
+
+  .productPrice {
+    display: flex;
+    justify-content: end;
+  }
+}
