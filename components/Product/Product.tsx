@@ -3,7 +3,7 @@ import './Product.scss';
 
 const Product = ({ data }) => {
   return (
-    <div key={data.id} className="productCard">
+    <div className="productCard">
       <div className="productTitle">
         <h2>{data.name}</h2>
       </div>
