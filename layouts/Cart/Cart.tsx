@@ -11,22 +11,24 @@ const Cart = ({ cart, setCart }) => {
   const [total, setTotal] = React.useState(0);
 
   React.useEffect(() => {
-    const cartItems = cart.reduce((items, product) => {
-      const itemIndex = items.findIndex((item) => item.id === product.id);
-      if (itemIndex >= 0) {
-        items[itemIndex].quantity += 1;
-        items[itemIndex].price += product.price;
-      } else {
-        items.push({
-          id: product.id,
-          name: product.name,
-          image: product.image,
-          price: product.price,
-          quantity: 1,
-        });
-      }
-      return items;
-    }, []);
+    const cartItems: Array<any> = cart
+      .reduce((items, product) => {
+        const itemIndex = items.findIndex((item) => item.id === product.id);
+        if (itemIndex >= 0) {
+          items[itemIndex].quantity += 1;
+          items[itemIndex].price += product.price;
+        } else {
+          items.push({
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            price: product.price,
+            quantity: 1,
+          });
+        }
+        return items;
+      }, [])
+      .sort((a, b) => a.name.localeCompare(b.name));
 
     setCartItems(cartItems);
   }, [cart]);
@@ -41,14 +43,16 @@ const Cart = ({ cart, setCart }) => {
     setTotal(total);
   }, [cartItems]);
 
-  const removeItem = (index) => {
-    console.log('removendo item');
+  const removeItem = (id) => {
     let newCart = [...cart];
-    newCart.splice(index, 1);
+    newCart.splice(
+      newCart.findIndex((item) => item.id === id),
+      1
+    );
     setCart(newCart);
   };
 
-  const finishShop = () => {
+  const checkout = () => {
     alert('Compra finalizada.');
     setCart([]);
   };
@@ -60,10 +64,10 @@ const Cart = ({ cart, setCart }) => {
       </div>
       <div className="cartItems">
         <ul>
-          {cartItems.map((item, index) => {
+          {cartItems.map((item) => {
             return (
               <li key={item.id}>
-                <CartItem item={item} removeItem={removeItem} index={index} />
+                <CartItem item={item} removeItem={removeItem} />
               </li>
             );
           })}
@@ -73,7 +77,7 @@ const Cart = ({ cart, setCart }) => {
         <CartTotalPrice>
           <Price value={total} />
         </CartTotalPrice>
-        <Button text="Finalizar" onClick={finishShop} />
+        <Button text="Finalizar" onClick={checkout} />
       </div>
     </div>
   );

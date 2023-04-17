@@ -3,7 +3,7 @@ import Button from '../../Button/Button';
 import Price from '../../Price/Price';
 import './CartItem.scss';
 
-const CartItem = ({ item, removeItem, index }) => {
+const CartItem = ({ item, removeItem }) => {
   return (
     <div className="cartItemContainer">
       <div className="cartItemImagem">
@@ -18,8 +18,8 @@ const CartItem = ({ item, removeItem, index }) => {
       </div>
       <div className="cartItemActions">
         <Button
-          text={item.quantity === 1 ? 'X' : '-1'}
-          onClick={() => removeItem(index)}
+          text={item.quantity === 1 ? 'X' : '-'}
+          onClick={() => removeItem(item.id)}
         />
       </div>
     </div>
