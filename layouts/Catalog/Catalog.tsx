@@ -3,12 +3,12 @@ import * as React from 'react';
 import Product from '../../components/Product/Product';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import ProductContainer from '../../components/ProductContainer/ProductContainer';
-import CartAddButton from '../../components/Cart/CartAddButton/CartAddButton';
 import CartIconCatalog from '../../components/Cart/CartIconCatalog/CartIconCatalog';
 
 import { findAll } from './CatalogService';
 
 import './Catalogs.scss';
+import Button from '../../components/Button/Button';
 
 const Catalog = ({ setShowCart, cart, setCart }) => {
   let productList: Array<any> = findAll();
@@ -28,7 +28,8 @@ const Catalog = ({ setShowCart, cart, setCart }) => {
         {productList.map((product) => (
           <ProductContainer key={product.id}>
             <Product data={product} />
-            <CartAddButton
+            <Button
+              text="Adicionar"
               onClick={() => {
                 addItem(product);
               }}

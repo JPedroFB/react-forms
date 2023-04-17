@@ -4,6 +4,7 @@
   border: solid black 1px;
   margin: 10px 0;
   height: 60px;
+  font-size: 0.9rem;
 
   div {
     display: flex;
@@ -15,10 +16,14 @@
     background-color: black;
     width: 70px;
     margin-right: 10px;
+
+    img {
+      height: 100%;
+    }
   }
 
   .cartItemTitle {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }

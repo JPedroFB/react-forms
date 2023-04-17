@@ -1,4 +1,4 @@
-.AddCartButton {
+button {
   background: none;
   padding: 10px 20px;
   border: solid 0.5px;
@@ -6,10 +6,10 @@
   cursor: pointer;
 }
 
-.AddCartButton:hover {
+button:hover {
   box-shadow: rgba(0, 0, 0, 0.445) 1px 1px 1px;
 }
 
-.AddCartButton:active {
+button:active {
   box-shadow: none;
 }

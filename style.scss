@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
 * {
-  font-family: Lato;
+  font-family: 'Merriweather', serif;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -15,11 +17,27 @@ h2 {
 
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  padding: 0 0 40px 0;
 
   .catalog {
+    transition: 1s ease;
   }
 
   .cart {
+    border-left: black solid 1px;
+    transition: 0.9s ease;
+    position: fixed;
+    right: 0;
+    width: 400px;
+    height: 100vh;
   }
+}
+
+.cart.hide {
+  right: -440px;
+}
+
+.catalog.hide {
+  padding-right: 440px;
 }

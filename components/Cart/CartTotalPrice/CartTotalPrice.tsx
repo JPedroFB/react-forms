@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-const CartTotalPrice = ({ total }) => {
+const CartTotalPrice = ({ children }) => {
   return (
-    <div>
-      <p>Total: {total}</p>
+    <div style={{ fontSize: '1.5rem' }}>
+      <p>Total: {children}</p>
     </div>
   );
 };
