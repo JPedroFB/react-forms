@@ -17,7 +17,10 @@ const CartItem = ({ item, removeItem, index }) => {
         </div>
       </div>
       <div className="cartItemActions">
-        <Button text="X" onClick={() => removeItem(index)} />
+        <Button
+          text={item.quantity === 1 ? 'X' : '-1'}
+          onClick={() => removeItem(index)}
+        />
       </div>
     </div>
   );
