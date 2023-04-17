@@ -41,6 +41,13 @@ const Cart = ({ cart, setCart }) => {
     setTotal(total);
   }, [cartItems]);
 
+  const removeItem = (index) => {
+    console.log('removendo item');
+    let newCart = [...cart];
+    newCart.splice(index, 1);
+    setCart(newCart);
+  };
+
   const finishShop = () => {
     alert('Compra finalizada.');
     setCart([]);
@@ -53,10 +60,10 @@ const Cart = ({ cart, setCart }) => {
       </div>
       <div className="cartItems">
         <ul>
-          {cartItems.map((item) => {
+          {cartItems.map((item, index) => {
             return (
               <li key={item.id}>
-                <CartItem item={item} />
+                <CartItem item={item} removeItem={removeItem} index={index} />
               </li>
             );
           })}

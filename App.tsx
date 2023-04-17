@@ -8,7 +8,7 @@ export default function App() {
   const [cart, setCart] = React.useState([]);
 
   React.useEffect(() => {
-    setShowCart(false);
+    if (!cart.length) setShowCart(false);
   }, [cart]);
 
   return (

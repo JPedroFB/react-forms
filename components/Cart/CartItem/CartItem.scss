@@ -1,5 +1,7 @@
 .cartItemContainer {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border: solid black 1px;
   margin: 10px 0;
@@ -25,5 +27,8 @@
   .cartItemTitle {
     font-weight: bold;
     font-size: 1rem;
+  }
+
+  .cartItemActions {
   }
 }
