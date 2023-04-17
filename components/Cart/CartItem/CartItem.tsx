@@ -9,7 +9,7 @@ const CartItem = ({ item, removeItem, index }) => {
       <div className="cartItemImagem">
         <img src={item.image} />
       </div>
-      <div>
+      <div style={{ width: '-webkit-fill-available' }}>
         <div className="cartItemTitle">{item.name}</div>
         <div className="cartItemInfo">
           <p>Quantidade: {item.quantity}</p>
